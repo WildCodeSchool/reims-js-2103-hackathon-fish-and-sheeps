@@ -5,7 +5,7 @@ import "./Css/Btn.css";
 function ButtonContact() {
   const history = useHistory();
   function handleClick() {
-    history.push("/screen");
+    history.push("/profile");
   }
   return (
     <button type="button" className="btnContact" onClick={handleClick}></button>
