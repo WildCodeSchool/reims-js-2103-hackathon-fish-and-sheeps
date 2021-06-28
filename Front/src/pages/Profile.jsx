@@ -3,6 +3,7 @@ import styled from "styled-components";
 import NavBar from "../components/NavBar.jsx";
 import FollowBar from "../components/FollowBar.jsx";
 import VideoProfile from "../components/VideoProfile.jsx";
+import pdpToto from "../components/assets/test.jpg";
 
 import "./Profile.css";
 
@@ -67,7 +68,7 @@ function Profile() {
         <FollowBar />
         <div className="search">
           <ProfileHeader>
-            <img id="pdp" src="" alt="profile picture" />
+            <img id="pdp" src={pdpToto} alt="profile picture" />
           </ProfileHeader>
           <UserContent>
             {userVideos.map((videoToDisplay) => (
