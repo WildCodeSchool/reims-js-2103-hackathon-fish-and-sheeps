@@ -11,26 +11,55 @@ const ProfileHeader = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding-top: 4rem;
+  margin: auto;
 `;
 
 const UserContent = styled.div`
+  margin: auto;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: flex-start;
   padding-top: 4rem;
+  max-width: 75vw;
 `;
 
 function Profile() {
   const userVideos = [
     {
       id: 1,
-      url: "here",
+      src: "here",
     },
     {
       id: 2,
-      url: "here",
+      src: "here",
+    },
+    {
+      id: 3,
+      src: "here",
+    },
+    {
+      id: 4,
+      src: "here",
+    },
+    {
+      id: 5,
+      src: "here",
+    },
+    {
+      id: 6,
+      src: "here",
+    },
+    {
+      id: 7,
+      src: "here",
+    },
+    {
+      id: 8,
+      src: "here",
     },
   ];
+
   return (
     <>
       <NavBar />
@@ -44,7 +73,7 @@ function Profile() {
             {userVideos.map((videoToDisplay) => (
               <VideoProfile
                 key={videoToDisplay.id}
-                title={videoToDisplay.url}
+                title={videoToDisplay.src}
               />
             ))}
           </UserContent>
