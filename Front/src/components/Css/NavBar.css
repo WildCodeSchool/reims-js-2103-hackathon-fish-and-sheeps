@@ -1,0 +1,11 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: start ;
+    height: 12vmin;
+    background-color: #003b01;
+}
+
+.logo{
+    height: 12vmin;
+}
