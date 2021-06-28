@@ -1,5 +1,9 @@
 #pdp {
-  border: solid 5px #1dbf73;
+  border: solid 4px #1dbf73;
   border-radius: 50%;
   height: 10rem;
+}
+
+#user__bio {
+  padding-top: 1rem;
 }

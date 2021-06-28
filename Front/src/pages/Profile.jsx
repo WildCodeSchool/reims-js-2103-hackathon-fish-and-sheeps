@@ -9,8 +9,9 @@ import "./Profile.css";
 
 const ProfileHeader = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding-top: 4rem;
   margin: auto;
 `;
@@ -22,41 +23,49 @@ const UserContent = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   padding-top: 4rem;
-  max-width: 75vw;
+  max-width: 78vw;
 `;
 
 function Profile() {
   const userVideos = [
     {
       id: 1,
-      src: "here",
+      title: "useState",
+      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
     },
     {
       id: 2,
-      src: "here",
+      title: "videoTitle",
+      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
     },
     {
       id: 3,
-      src: "here",
+      title: "videoTitle",
+      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
     },
     {
       id: 4,
-      src: "here",
+      title: "videoTitle",
+      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
     },
     {
       id: 5,
+      title: "videoTitle",
       src: "here",
     },
     {
       id: 6,
+      title: "videoTitle",
       src: "here",
     },
     {
       id: 7,
+      title: "videoTitle",
       src: "here",
     },
     {
       id: 8,
+      title: "videoTitle",
       src: "here",
     },
   ];
@@ -69,13 +78,11 @@ function Profile() {
         <div className="search">
           <ProfileHeader>
             <img id="pdp" src={pdpToto} alt="profile picture" />
+            <p id="user__bio">Web dev with React js</p>
           </ProfileHeader>
           <UserContent>
             {userVideos.map((videoToDisplay) => (
-              <VideoProfile
-                key={videoToDisplay.id}
-                title={videoToDisplay.src}
-              />
+              <VideoProfile key={videoToDisplay.id} src={videoToDisplay.src} />
             ))}
           </UserContent>
         </div>

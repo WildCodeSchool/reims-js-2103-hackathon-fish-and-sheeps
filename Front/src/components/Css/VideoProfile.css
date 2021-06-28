@@ -2,12 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10vw;
-  height: 15vh;
-  border: solid 3px black;
+  width: 22.5vw;
+  height: 45vh;
+  border: solid 2px #1dbf73;
   margin: 0.5rem 1rem;
 }
 
 p {
   font-size: 1.5rem;
 }
+
