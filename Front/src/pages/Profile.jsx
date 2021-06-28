@@ -53,21 +53,6 @@ function Profile() {
       title: "videoTitle",
       src: "here",
     },
-    {
-      id: 6,
-      title: "videoTitle",
-      src: "here",
-    },
-    {
-      id: 7,
-      title: "videoTitle",
-      src: "here",
-    },
-    {
-      id: 8,
-      title: "videoTitle",
-      src: "here",
-    },
   ];
 
   return (

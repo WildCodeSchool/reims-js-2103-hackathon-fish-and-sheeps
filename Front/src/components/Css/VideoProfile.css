@@ -2,9 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 22.5vw;
-  height: 45vh;
-  border: solid 2px #1dbf73;
+  width: 35vmin;
+  height: 20vmin;
+  border: solid 4px #1dbf73;
+  background-color:#1dbf73 ;
+  border-radius: 5px;
   margin: 0.5rem 1rem;
 }
 

@@ -10,7 +10,7 @@ import "./Css/Diapo.scss";
 function Diapo() {
   const history = useHistory();
   function handleClick() {
-    history.push("/screen");
+    history.push("/webdesigner");
   }
   const slides = [
     <img

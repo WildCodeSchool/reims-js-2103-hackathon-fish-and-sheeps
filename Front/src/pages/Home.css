@@ -5,3 +5,41 @@
 .search{
     width: 100vw;
 }
+.imput{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 10vmin;
+}
+.imputS{
+border: solid 2px #003b01;
+height: 5vmin;
+width: 35vmin;
+font-size: 3vmin;
+}
+.btnS{
+    width:8vmin;
+    color:white;
+    background-color: #003b01;
+    cursor: pointer;
+    border: none;
+}
+.btnAdd{
+    background-color: #003b01;
+    border: none;
+    border-radius: 2px;
+    color: #ffffff;
+    margin-top: 5px;
+    width: 20vmin;
+    height: 5vmin;
+    font-size: 3vmin;
+    cursor: pointer;
+}
+.btnAdd:hover{
+background-color:#1dbf73 ;
+}
+.place{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
