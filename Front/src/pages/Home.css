@@ -1,0 +1,7 @@
+.container{
+    display: flex;
+    justify-content: start;
+}
+.search{
+    width: 100vw;
+}

@@ -1,0 +1,32 @@
+@keyframes pulsy {
+    0% {
+        box-shadow: 0 0 0 0 #003b01;
+    }
+    70% {
+        box-shadow: 0 0 0 5px rgba(45, 255, 224, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(45, 255, 224, 0);
+    }
+}
+
+.followbar{
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1dbf73;
+    width: 12vmin;
+    height: 88vmin;
+    box-shadow: 0px 0px 10px black; 
+}
+.btnChange{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 25px;
+    color: #003b01;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    animation: pulsy 2s infinite;
+    width: 10vmin;
+
+}
