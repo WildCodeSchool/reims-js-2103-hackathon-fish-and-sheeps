@@ -1,9 +1,26 @@
 #pdp {
   border: solid 4px #1dbf73;
   border-radius: 50%;
-  height: 10rem;
+  height: 13vmin;
 }
 
 #user__bio {
   padding-top: 1rem;
+}
+
+
+
+.btnFollow{
+    background-color: #003b01;
+    border: none;
+    border-radius: 2px;
+    color: #ffffff;
+    margin-top: 5px;
+    width: 15vmin;
+    height: 3vmin;
+    font-size: 2vmin;
+    cursor: pointer;
+}
+.btnFollow:hover{
+background-color:#1dbf73 ;
 }

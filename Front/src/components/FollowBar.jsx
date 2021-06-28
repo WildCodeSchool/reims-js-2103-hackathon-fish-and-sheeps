@@ -1,10 +1,14 @@
 import React from "react";
 import ButtonContact from "./ButtonContact.jsx";
 import ButtonTchat from "./ButtonTchat.jsx";
+import ButtonWeb from "./ButtonWeb.jsx";
+import AddContext from "../contexts/AddContext.jsx";
 import "./Css/FollowBar.css";
 
 function FollowBar() {
-  const [change, setchange] = React.useState(false);
+  const [change, setChange] = React.useState(false);
+  const { play } = React.useContext(AddContext);
+  const { follow } = React.useContext(AddContext);
 
   return (
     <>
@@ -14,11 +18,13 @@ function FollowBar() {
             <button
               className="btnChange"
               type="button"
-              onClick={() => setchange(!change)}
+              onClick={() => setChange(!change)}
             >
               Following
             </button>
+
             <ButtonContact />
+            {follow === true && <ButtonWeb />}
           </>
         )}
 
@@ -27,11 +33,11 @@ function FollowBar() {
             <button
               className="btnChange"
               type="button"
-              onClick={() => setchange(!change)}
+              onClick={() => setChange(!change)}
             >
               Tchat
             </button>
-            <ButtonTchat />
+            {play === true && <ButtonTchat />}
           </>
         )}
       </div>
