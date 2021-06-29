@@ -26,36 +26,36 @@ const UserContent = styled.div`
   padding-top: 4rem;
   max-width: 78vw;
 `;
+const userVideos = [
+  {
+    id: 1,
+    title: "useState",
+    src: "https://www.youtube.com/watch?v=w6y_OhhOc_M&ab_channel=Team8Tuto",
+  },
+  {
+    id: 2,
+    title: "videoTitle",
+    src: "https://www.youtube.com/watch?v=5r-_fy39yPU&ab_channel=Team8Tuto",
+  },
+  {
+    id: 3,
+    title: "videoTitle",
+    src: "https://www.youtube.com/watch?v=QSsrrE19VOI&ab_channel=Team8Tuto",
+  },
+  {
+    id: 4,
+    title: "videoTitle",
+    src: "https://www.youtube.com/watch?v=dB-6a0DvWn8&ab_channel=Team8Tuto",
+  },
+  {
+    id: 5,
+    title: "videoTitle",
+    src: "https://www.youtube.com/watch?v=VfnBrgsLPnI&ab_channel=Team8Tuto",
+  },
+];
 
 function ProfileWeb() {
   const { setFollow } = React.useContext(AddContext);
-  const userVideos = [
-    {
-      id: 1,
-      title: "useState",
-      src: "https://www.youtube.com/watch?v=w6y_OhhOc_M&ab_channel=Team8Tuto",
-    },
-    {
-      id: 2,
-      title: "videoTitle",
-      src: "https://www.youtube.com/watch?v=5r-_fy39yPU&ab_channel=Team8Tuto",
-    },
-    {
-      id: 3,
-      title: "videoTitle",
-      src: "https://www.youtube.com/watch?v=QSsrrE19VOI&ab_channel=Team8Tuto",
-    },
-    {
-      id: 4,
-      title: "videoTitle",
-      src: "https://www.youtube.com/watch?v=dB-6a0DvWn8&ab_channel=Team8Tuto",
-    },
-    {
-      id: 5,
-      title: "videoTitle",
-      src: "https://www.youtube.com/watch?v=VfnBrgsLPnI&ab_channel=Team8Tuto",
-    },
-  ];
 
   return (
     <>
@@ -72,7 +72,11 @@ function ProfileWeb() {
           </ProfileHeader>
           <UserContent>
             {userVideos.map((videoToDisplay) => (
-              <VideoProfile key={videoToDisplay.id} src={videoToDisplay.src} />
+              <VideoProfile
+                key={videoToDisplay.id}
+                src={videoToDisplay.src}
+                title={videoToDisplay.title}
+              />
             ))}
           </UserContent>
         </div>

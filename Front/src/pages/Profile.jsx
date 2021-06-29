@@ -29,34 +29,35 @@ const UserContent = styled.div`
   max-width: 78vw;
 `;
 
+const userVideos = [
+  {
+    id: 1,
+    title: "useState",
+    src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
+  },
+  {
+    id: 2,
+    title: "videoTitle",
+    src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
+  },
+  {
+    id: 3,
+    title: "videoTitle",
+    src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
+  },
+  {
+    id: 4,
+    title: "videoTitle",
+    src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
+  },
+  {
+    id: 5,
+    title: "videoTitle",
+    src: null,
+  },
+];
+
 function Profile() {
-  const userVideos = [
-    {
-      id: 1,
-      title: "useState",
-      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
-    },
-    {
-      id: 2,
-      title: "videoTitle",
-      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
-    },
-    {
-      id: 3,
-      title: "videoTitle",
-      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
-    },
-    {
-      id: 4,
-      title: "videoTitle",
-      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
-    },
-    {
-      id: 5,
-      title: "videoTitle",
-      src: null,
-    },
-  ];
   const [createVideo, setCreateVideo] = React.useState(false);
 
   const createNewVideo = () => {
@@ -90,6 +91,7 @@ function Profile() {
                     tabIndex="-1"
                     onKeyDown={createNewVideo}
                     onClick={createNewVideo}
+                    key={videoToDisplay.id}
                   >
                     <FontAwesomeIcon className="icon" icon={faPlus} />
                   </div>
@@ -99,6 +101,7 @@ function Profile() {
                 <VideoProfile
                   key={videoToDisplay.id}
                   src={videoToDisplay.src}
+                  title={videoToDisplay.title}
                 />
               );
             })}
