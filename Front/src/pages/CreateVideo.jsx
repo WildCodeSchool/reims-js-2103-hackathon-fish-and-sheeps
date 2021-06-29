@@ -3,6 +3,7 @@ import { useReactMediaRecorder } from "react-media-recorder";
 import NavBar from "../components/NavBar.jsx";
 import FollowBar from "../components/FollowBar.jsx";
 import "../App.css";
+import "./CreateVideo.css";
 
 function CreateVideo() {
   const [selectedFile, setSelectedFile] = useState();
@@ -50,11 +51,11 @@ function CreateVideo() {
       }
     }, [previewStream]);
     return (
-      <div>
+      <div className="reactVideo">
         <p>{status}</p>
+        <video ref={videoRef} src={mediaBlobUrl} controls autoPlay />
         <button onClick={startRecording}>Start Recording</button>
         <button onClick={stopRecording}>Stop Recording</button>
-        <video ref={videoRef} src={mediaBlobUrl} controls autoPlay />
       </div>
     );
   };
@@ -65,23 +66,25 @@ function CreateVideo() {
       <div className="container">
         <FollowBar />
         <div className="search">
-          <div className="reactVideoRecorder">{RecordView()};</div>
-          <input type="file" name="file" onChange={changeHandler} />
-          {selectedFile != null ? (
+          <div className="records">
+            <div className="reactVideoRecorder">{RecordView()}</div>
+            <input type="file" name="file" onChange={changeHandler} />
+            {selectedFile != null ? (
+              <div>
+                <p>Filename: {selectedFile.name}</p>
+                <p>Filetype: {selectedFile.type}</p>
+                <p>Size in bytes: {selectedFile.size}</p>
+                <p>
+                  lastModifiedDate:{" "}
+                  {new Date(selectedFile.lastModified).toLocaleDateString()}
+                </p>
+              </div>
+            ) : (
+              <p>Select a file to show details</p>
+            )}
             <div>
-              <p>Filename: {selectedFile.name}</p>
-              <p>Filetype: {selectedFile.type}</p>
-              <p>Size in bytes: {selectedFile.size}</p>
-              <p>
-                lastModifiedDate:{" "}
-                {new Date(selectedFile.lastModified).toLocaleDateString()}
-              </p>
+              <button onClick={handleSubmission}>Submit</button>
             </div>
-          ) : (
-            <p>Select a file to show details</p>
-          )}
-          <div>
-            <button onClick={handleSubmission}>Submit</button>
           </div>
         </div>
       </div>
