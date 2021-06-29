@@ -22,9 +22,15 @@ function Home() {
               Search
             </button>
           </div>
-          {search === false && <Diapo />}
+          {search === false && (
+            <>
+              <h1 className="h1">Top 4 Freelancers of the month</h1>
+              <Diapo />
+            </>
+          )}
           {search === true && (
             <>
+              <h1 className="h1">Our Best WebDesigner</h1>
               <Diapo2 />
               <div className="place">
                 <button className="btnAdd" onClick={() => setPlay(true)}>

@@ -13,6 +13,8 @@
 
 # misc
 .DS_Store
+.env
+/videos
 .env.local
 .env.development.local
 .env.test.local
