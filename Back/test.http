@@ -1,0 +1,5 @@
+POST http://localhost:5000/api/upload/
+  "Content-Type": "application/json"
+{
+  "title": "Test 1"
+}

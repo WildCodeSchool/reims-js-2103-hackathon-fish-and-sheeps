@@ -71,7 +71,13 @@ function Profile() {
   d'un nouveau composant qui sera ma page de création de vidéo */
 
   if (createVideo) {
-    return <CreateVideo userVideos={userVideos} />;
+    return (
+      <CreateVideo
+        userVideos={userVideos}
+        setMyVideoTitle={setMyVideoTitle}
+        myVideoTitle={myVideoTitle}
+      />
+    );
   }
   return (
     <>
@@ -108,8 +114,6 @@ function Profile() {
                   key={videoToDisplay.id}
                   src={videoToDisplay.src}
                   title={videoToDisplay.title}
-                  setMyVideoTitle={setMyVideoTitle}
-                  myVideoTitle={myVideoTitle}
                 />
               );
             })}

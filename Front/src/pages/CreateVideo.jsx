@@ -67,8 +67,8 @@ function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
       }
     }, [previewStream]);
 
-    const url = `http://localhost:5000/api/videos`;
-
+    const url = `http://localhost:5000/api/upload`;
+    console.log(myVideoTitle);
     const config = {
       method: "POST",
       headers: {

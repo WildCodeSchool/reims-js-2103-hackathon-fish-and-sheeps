@@ -5,7 +5,7 @@ module.exports = (req, res) => {
     console.log(req.file);
     if (req.file.size <= 990000000) {
         fs.renameSync(`${req.file.path}`, `videos/${req.file.originalname}`);
-        res.status(201).json({"message": "created","url": `localhost:8000/videos${req.file.originalname}`});
+        res.status(201).json({"message": "created","url": `localhost:5000/videos${req.file.originalname}`});
         console.log('uploaded');
     }
     else {
