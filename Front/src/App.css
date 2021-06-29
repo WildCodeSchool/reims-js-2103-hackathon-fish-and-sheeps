@@ -1,6 +1,10 @@
+@font-face {
+  font-family: 'MyWebFont';
+  src:  url('./Macan-Semibold.woff2') format('woff2'),
+        url('./Macan-Semibold.woff') format('woff');
+}
 * {
+  font-family: 'MyWebFont';
   margin: 0;
   padding: 0;
-  list-style-type: none;
-  text-decoration: none;
 }
