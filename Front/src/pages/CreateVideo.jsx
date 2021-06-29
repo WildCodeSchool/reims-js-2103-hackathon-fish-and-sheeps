@@ -1,13 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRecordVinyl } from "@fortawesome/free-solid-svg-icons";
+import { faRecordVinyl, faStop } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 import NavBar from "../components/NavBar.jsx";
 import FollowBar from "../components/FollowBar.jsx";
 import "../components/Css/CreateVideo.css";
+import "./CreateVideo.css";
 
-function CreateVideo() {
+function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
   const [selectedFile, setSelectedFile] = useState();
+  const [isRecording, setIsRecording] = useState(false);
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -30,15 +33,26 @@ function CreateVideo() {
       });
   };
   // RECORD COMPONENT FUNCTION CALLED IN LINE 69
+  const getUserTitle = (e) => {
+    setMyVideoTitle(e.target.value);
+  };
 
   const RecordView = () => {
-    const {
-      status,
-      startRecording,
-      stopRecording,
-      mediaBlobUrl,
-      previewStream,
-    } = useReactMediaRecorder({ video: true });
+    const { startRecording, stopRecording, mediaBlobUrl, previewStream } =
+      useReactMediaRecorder({
+        video: true /* add this line to access stream functionality
+      'screen: true' */,
+      });
+
+    const myStartRecording = () => {
+      startRecording();
+      setIsRecording(true);
+    };
+
+    const myStopRecording = () => {
+      stopRecording();
+      setIsRecording(false);
+    };
 
     const videoRef = useRef();
     useEffect(() => {
@@ -52,24 +66,52 @@ function CreateVideo() {
         videoRef.current.srcObject = null;
       }
     }, [previewStream]);
+
+    const url = `http://localhost:5000/api/videos`;
+
+    const config = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(myVideoTitle),
+    };
+
+    const postToServer = () => {
+      fetch(url, config)
+        .then((res) => res.json())
+        .then((data) => {
+          userVideos.push(data);
+        });
+    };
+
     return (
-      <div>
-        <p>{status}</p>
-        {/* RECORDING BUTTON */}
-        <div
-          className="start__record__button"
-          role="button"
-          aria-label="Close"
-          tabIndex="-1"
-          onKeyDown={startRecording}
-          onClick={startRecording}
-        >
-          <FontAwesomeIcon className="iconRecord" icon={faRecordVinyl} />
-        </div>
-        {/* STOP BUTTON */}
-        <button onClick={startRecording}>Start Recording</button>
-        <button onClick={stopRecording}>Stop Recording</button>
+      <div className="reactVideo">
         <video ref={videoRef} src={mediaBlobUrl} controls autoPlay />
+        <div className="videoButtons">
+          <button className="startRecording" onClick={myStartRecording}>
+            <FontAwesomeIcon
+              className={isRecording ? "iconNotRecording" : "iconRecording"}
+              icon={faRecordVinyl}
+            />{" "}
+            Start Recording
+          </button>
+          <button className="stopRecording" onClick={myStopRecording}>
+            Stop Recording{" "}
+            <FontAwesomeIcon
+              className={isRecording ? "iconRecording" : "iconNotRecording"}
+              icon={faStop}
+            />
+          </button>
+        </div>
+        <button
+          type="button"
+          role="button"
+          className="publish__button"
+          onClick={postToServer}
+        >
+          Post
+        </button>
       </div>
     );
   };
@@ -80,23 +122,32 @@ function CreateVideo() {
       <div className="container">
         <FollowBar />
         <div className="search">
-          <div className="reactVideoRecorder">{RecordView()};</div>
-          <input type="file" name="file" onChange={changeHandler} />
-          {selectedFile != null ? (
+          <div className="records">
+            <label htmlFor="videoTitle">Your video Title goes here</label>
+            <input
+              type="text"
+              name="videoTitle"
+              id="title"
+              onChange={getUserTitle}
+            />
+            <div className="reactVideoRecorder">{RecordView()}</div>
+            <input type="file" name="file" onChange={changeHandler} />
+            {selectedFile != null ? (
+              <div>
+                <p>Filename: {selectedFile.name}</p>
+                <p>Filetype: {selectedFile.type}</p>
+                <p>Size in bytes: {selectedFile.size}</p>
+                <p>
+                  lastModifiedDate:{" "}
+                  {new Date(selectedFile.lastModified).toLocaleDateString()}
+                </p>
+              </div>
+            ) : (
+              <p>Select a file to show details</p>
+            )}
             <div>
-              <p>Filename: {selectedFile.name}</p>
-              <p>Filetype: {selectedFile.type}</p>
-              <p>Size in bytes: {selectedFile.size}</p>
-              <p>
-                lastModifiedDate:{" "}
-                {new Date(selectedFile.lastModified).toLocaleDateString()}
-              </p>
+              <button onClick={handleSubmission}>Submit</button>
             </div>
-          ) : (
-            <p>Select a file to show details</p>
-          )}
-          <div>
-            <button onClick={handleSubmission}>Submit</button>
           </div>
         </div>
       </div>
@@ -104,4 +155,9 @@ function CreateVideo() {
   );
 }
 
+CreateVideo.propTypes = {
+  userVideos: PropTypes.string.isRequired,
+  myVideoTitle: PropTypes.string.isRequired,
+  setMyVideoTitle: PropTypes.func.isRequired,
+};
 export default CreateVideo;
