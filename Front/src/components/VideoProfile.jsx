@@ -5,9 +5,11 @@ import "./Css/VideoProfile.css";
 
 function VideoProfile({ title, src }) {
   return (
-    <div className="user__video">
-      <p>{title}</p>
-      <ReactPlayer height={"100%"} width={"100%"} url={src} />
+    <div className="title__content">
+      <p id="title">{title}</p>
+      <div className="user__video">
+        <ReactPlayer height={"100%"} width={"100%"} url={src} />
+      </div>
     </div>
   );
 }

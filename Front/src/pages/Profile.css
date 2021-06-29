@@ -47,3 +47,10 @@ background-color:#1dbf73 ;
 .create__video__button:hover {
   opacity: 80%;
 }
+
+#pay {
+  color: transparent;
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+}

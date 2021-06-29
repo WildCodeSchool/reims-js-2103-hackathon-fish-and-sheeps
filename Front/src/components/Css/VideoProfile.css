@@ -7,10 +7,17 @@
   border: solid 4px #1dbf73;
   background-color:#1dbf73 ;
   border-radius: 5px;
-  margin: 0.5rem 1rem;
+  margin: 0.3rem 1rem;
 }
 
-p {
-  font-size: 1.5rem;
+#title {
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #003b01;
+
 }
 
+.title__content {
+  padding: 1rem;
+}
