@@ -34,7 +34,7 @@ function FollowBar() {
               type="button"
               onClick={() => setChange(!change)}
             >
-              Tchat
+              Chat
             </button>
             {play === true && <ButtonTchat />}
           </>

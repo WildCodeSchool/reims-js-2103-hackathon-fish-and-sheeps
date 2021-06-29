@@ -28,5 +28,6 @@
     margin-bottom: 15px;
     animation: pulsy 2s infinite;
     width: 10vmin;
+    height: 6vh;
     cursor: pointer;
 }
