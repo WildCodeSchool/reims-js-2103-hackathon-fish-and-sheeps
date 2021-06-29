@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonContact from "./ButtonContact.jsx";
+
 import ButtonTchat from "./ButtonTchat.jsx";
 import ButtonWeb from "./ButtonWeb.jsx";
 import AddContext from "../contexts/AddContext.jsx";
@@ -23,7 +23,6 @@ function FollowBar() {
               Following
             </button>
 
-            <ButtonContact />
             {follow === true && <ButtonWeb />}
           </>
         )}
