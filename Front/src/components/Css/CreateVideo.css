@@ -1,0 +1,9 @@
+.recording__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#1dbf73;
+    border-radius: 5px;
+    margin: 0.5rem 1rem;
+    cursor: pointer;
+}

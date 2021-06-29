@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRecordVinyl } from "@fortawesome/free-solid-svg-icons";
 import NavBar from "../components/NavBar.jsx";
 import FollowBar from "../components/FollowBar.jsx";
-import "../App.css";
+import "../components/Css/CreateVideo.css";
 
 function CreateVideo() {
   const [selectedFile, setSelectedFile] = useState();
@@ -27,6 +29,7 @@ function CreateVideo() {
         console.error("Error:", error);
       });
   };
+  // RECORD COMPONENT FUNCTION CALLED IN LINE 69
 
   const RecordView = () => {
     const {
@@ -52,6 +55,18 @@ function CreateVideo() {
     return (
       <div>
         <p>{status}</p>
+        {/* RECORDING BUTTON */}
+        <div
+          className="start__record__button"
+          role="button"
+          aria-label="Close"
+          tabIndex="-1"
+          onKeyDown={startRecording}
+          onClick={startRecording}
+        >
+          <FontAwesomeIcon className="iconRecord" icon={faRecordVinyl} />
+        </div>
+        {/* STOP BUTTON */}
         <button onClick={startRecording}>Start Recording</button>
         <button onClick={stopRecording}>Stop Recording</button>
         <video ref={videoRef} src={mediaBlobUrl} controls autoPlay />
