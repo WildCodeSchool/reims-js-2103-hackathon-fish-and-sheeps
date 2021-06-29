@@ -51,7 +51,7 @@ function Profile() {
     {
       id: 5,
       title: "videoTitle",
-      src: "here",
+      src: null,
     },
   ];
 
@@ -66,9 +66,17 @@ function Profile() {
             <p id="user__bio">Web dev with React js</p>
           </ProfileHeader>
           <UserContent>
-            {userVideos.map((videoToDisplay) => (
-              <VideoProfile key={videoToDisplay.id} src={videoToDisplay.src} />
-            ))}
+            {userVideos.map((videoToDisplay) => {
+              if (videoToDisplay.src == null) {
+                return <button>plus</button>;
+              }
+              return (
+                <VideoProfile
+                  key={videoToDisplay.id}
+                  src={videoToDisplay.src}
+                />
+              );
+            })}
           </UserContent>
         </div>
       </div>
