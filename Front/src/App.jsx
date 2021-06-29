@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home.jsx";
+import Screen from "./pages/Screen.jsx";
 import ProfileWeb from "./pages/ProfileWeb.jsx";
 import "./App.css";
 import Profile from "./pages/Profile.jsx";
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/profile" exact component={Profile} />
             <Route path="/webdesigner" exact component={ProfileWeb} />
+            <Route path="/chat" exact component={Screen} />
           </Switch>
         </BrowserRouter>
       </AddContext.Provider>

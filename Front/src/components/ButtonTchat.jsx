@@ -5,7 +5,7 @@ import "./Css/Btn.css";
 function ButtonTchat() {
   const history = useHistory();
   function handleClick() {
-    history.push("/screen");
+    history.push("/chat");
   }
   return (
     <button type="button" className="btnTchat" onClick={handleClick}></button>
