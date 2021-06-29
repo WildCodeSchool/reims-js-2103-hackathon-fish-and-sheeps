@@ -65,11 +65,13 @@ function Profile() {
     setCreateVideo(!createVideo);
   };
 
+  const [myVideoTitle, setMyVideoTitle] = React.useState("");
+
   /* Si l'état de mon state createVideo = true, alors return 
   d'un nouveau composant qui sera ma page de création de vidéo */
 
   if (createVideo) {
-    return <CreateVideo />;
+    return <CreateVideo userVideos={userVideos} />;
   }
   return (
     <>
@@ -106,6 +108,8 @@ function Profile() {
                   key={videoToDisplay.id}
                   src={videoToDisplay.src}
                   title={videoToDisplay.title}
+                  setMyVideoTitle={setMyVideoTitle}
+                  myVideoTitle={myVideoTitle}
                 />
               );
             })}

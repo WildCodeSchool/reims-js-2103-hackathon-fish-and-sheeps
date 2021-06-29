@@ -1,0 +1,56 @@
+.recording__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:#1dbf73;
+    border-radius: 5px;
+    margin: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.reactVideo video {
+  margin-bottom: 1rem;
+}
+
+.videoButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.startRecording {
+  background-color: #1dbf73;
+  border-radius: 5px;
+  color: white;
+  font-size: 2rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+.startRecording:hover {
+  opacity: 85%;
+}
+
+.stopRecording {
+  background-color: #1dbf73;
+  border-radius: 5px;
+  color: white;
+  font-size: 2rem;
+  padding: 0.75rem 0.5rem;
+  cursor: pointer;
+}
+
+.stopRecording:hover {
+  opacity: 85%;
+}
+
+.iconRecording {
+  color: white;
+  font-size: 2rem;
+}
+
+.iconNotRecording {
+  color: rgb(180, 0, 0);
+  font-size: 2rem;
+}
