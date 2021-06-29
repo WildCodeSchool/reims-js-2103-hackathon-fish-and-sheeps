@@ -28,7 +28,7 @@ function Home() {
               <Diapo2 />
               <div className="place">
                 <button className="btnAdd" onClick={() => setPlay(true)}>
-                  Add Tchat
+                  Add Chat
                 </button>
               </div>
             </>
