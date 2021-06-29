@@ -1,12 +1,12 @@
 .btnContact{
     background-image:url('../assets/test.jpg') ;
-    background-size: 10vmin;
+    background-size: 9vmin;
     border-radius: 50%;
     border: none;
-    height: 10vmin;
-    width: 10vmin;
+    height: 9vmin;
+    width: 9vmin;
     cursor: pointer;
-    margin-bottom: 15px;
+    margin-right: 5vmin;
 }
 .btnTchat{
     background-image:url('../assets/WEB.png') ;
