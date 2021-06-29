@@ -4,8 +4,8 @@
     background-image: 20vmin;
 }
 
-$time: 500ms;
-$delay: $time/2;
+$time: 0ms;
+$delay: $time/0;
 $mode: cubic-bezier(.17, .67, .55, 1.43);
 @keyframes heartbeat {
   0% {
