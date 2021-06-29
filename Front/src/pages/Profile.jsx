@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import NavBar from "../components/NavBar.jsx";
 import FollowBar from "../components/FollowBar.jsx";
 import VideoProfile from "../components/VideoProfile.jsx";
+import CreateVideo from "./CreateVideo.jsx";
 import pdpToto from "../components/assets/test.jpg";
 
 import "./Profile.css";
@@ -54,7 +57,18 @@ function Profile() {
       src: null,
     },
   ];
+  const [createVideo, setCreateVideo] = React.useState(false);
 
+  const createNewVideo = () => {
+    setCreateVideo(!createVideo);
+  };
+
+  /* Si l'état de mon state createVideo = true, alors return 
+  d'un nouveau composant qui sera ma page de création de vidéo */
+
+  if (createVideo) {
+    return <CreateVideo />;
+  }
   return (
     <>
       <NavBar />
@@ -68,7 +82,18 @@ function Profile() {
           <UserContent>
             {userVideos.map((videoToDisplay) => {
               if (videoToDisplay.src == null) {
-                return <button>plus</button>;
+                return (
+                  <div
+                    className="create__video__button"
+                    role="button"
+                    aria-label="Close"
+                    tabIndex="-1"
+                    onKeyDown={createNewVideo}
+                    onClick={createNewVideo}
+                  >
+                    <FontAwesomeIcon className="icon" icon={faPlus} />
+                  </div>
+                );
               }
               return (
                 <VideoProfile

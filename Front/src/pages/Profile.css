@@ -24,3 +24,26 @@
 .btnFollow:hover{
 background-color:#1dbf73 ;
 }
+
+.icon {
+  color: white;
+  font-size: 3rem;
+}
+
+.create__video__button {
+  border: solid 3px #1dbf73;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35vmin;
+  height: 20vmin;
+  background-color:#1dbf73;
+  border-radius: 5px;
+  margin: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.create__video__button:hover {
+  opacity: 80%;
+}
