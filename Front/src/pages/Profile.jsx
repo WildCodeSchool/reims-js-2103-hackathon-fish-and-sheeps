@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -7,6 +7,7 @@ import FollowBar from "../components/FollowBar.jsx";
 import VideoProfile from "../components/VideoProfile.jsx";
 import CreateVideo from "./CreateVideo.jsx";
 import pdpToto from "../components/assets/test.jpg";
+import AddContext from "../contexts/AddContext.jsx";
 
 import "./Profile.css";
 import "../components/Css/VideoProfile.css";
@@ -30,34 +31,6 @@ const UserContent = styled.div`
   max-width: 78vw;
 `;
 
-const userVideos = [
-  {
-    id: 1,
-    title: "Title video 1",
-    src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
-  },
-  {
-    id: 2,
-    title: "Title video 2",
-    src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
-  },
-  {
-    id: 3,
-    title: "Title video 3",
-    src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
-  },
-  {
-    id: 4,
-    title: "Title video 4",
-    src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
-  },
-  {
-    id: 5,
-    title: "Title video 5",
-    src: null,
-  },
-];
-
 function Profile() {
   const [createVideo, setCreateVideo] = React.useState(false);
 
@@ -66,6 +39,31 @@ function Profile() {
   };
 
   const [myVideoTitle, setMyVideoTitle] = React.useState("");
+
+  const [newObjectToInsertInArray, setNewObjectToInsertInArray] =
+    React.useState(false);
+
+  const { myVideoUrl } = React.useContext(AddContext);
+  const { userVideos, setUserVideos } = React.useContext(AddContext);
+
+  useEffect(() => {
+    setUserVideos(
+      [...userVideos],
+      userVideos.unshift(newObjectToInsertInArray)
+    );
+  }, [newObjectToInsertInArray]);
+
+  console.log(userVideos);
+
+  console.log(newObjectToInsertInArray);
+
+  useEffect(() => {
+    setNewObjectToInsertInArray({
+      id: 6,
+      title: myVideoTitle,
+      src: myVideoUrl,
+    });
+  }, [myVideoUrl]);
 
   /* Si l'état de mon state createVideo = true, alors return 
   d'un nouveau composant qui sera ma page de création de vidéo */

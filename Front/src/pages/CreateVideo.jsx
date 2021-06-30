@@ -5,12 +5,15 @@ import { faRecordVinyl, faStop } from "@fortawesome/free-solid-svg-icons";
 import PropTypes from "prop-types";
 import NavBar from "../components/NavBar.jsx";
 import FollowBar from "../components/FollowBar.jsx";
+import AddContext from "../contexts/AddContext.jsx";
 import "../components/Css/CreateVideo.css";
 import "./CreateVideo.css";
 
-function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
+function CreateVideo({ myVideoTitle, setMyVideoTitle }) {
   const [selectedFile, setSelectedFile] = useState();
   const [isRecording, setIsRecording] = useState(false);
+
+  const { setMyVideoUrl } = React.useContext(AddContext);
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -67,22 +70,10 @@ function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
       }
     }, [previewStream]);
 
-    const url = `http://localhost:5000/api/upload`;
     console.log(myVideoTitle);
-    const config = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(myVideoTitle),
-    };
 
-    const postToServer = () => {
-      fetch(url, config)
-        .then((res) => res.json())
-        .then((data) => {
-          userVideos.push(data);
-        });
+    const postTheVideo = () => {
+      setMyVideoUrl(mediaBlobUrl);
     };
 
     return (
@@ -108,7 +99,7 @@ function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
           type="button"
           role="button"
           className="publish__button"
-          onClick={postToServer}
+          onClick={postTheVideo}
         >
           Post
         </button>
@@ -156,8 +147,8 @@ function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
 }
 
 CreateVideo.propTypes = {
-  userVideos: PropTypes.string.isRequired,
   myVideoTitle: PropTypes.string.isRequired,
   setMyVideoTitle: PropTypes.func.isRequired,
+  setMyFinalTitle: PropTypes.func.isRequired,
 };
 export default CreateVideo;

@@ -10,9 +10,49 @@ import AddContext from "./contexts/AddContext.jsx";
 function App() {
   const [play, setPlay] = React.useState(false);
   const [follow, setFollow] = React.useState(false);
+  const [myVideoUrl, setMyVideoUrl] = React.useState("");
+  const [userVideos, setUserVideos] = React.useState([
+    {
+      id: 1,
+      title: "Title video 1",
+      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
+    },
+    {
+      id: 2,
+      title: "Title video 2",
+      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
+    },
+    {
+      id: 3,
+      title: "Title video 3",
+      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
+    },
+    {
+      id: 4,
+      title: "Title video 4",
+      src: "https://www.youtube.com/watch?v=4pO-HcG2igk",
+    },
+    {
+      id: 5,
+      title: "Title video 5",
+      src: null,
+    },
+  ]);
+
   return (
     <div className="App">
-      <AddContext.Provider value={{ play, setPlay, follow, setFollow }}>
+      <AddContext.Provider
+        value={{
+          play,
+          setPlay,
+          follow,
+          setFollow,
+          myVideoUrl,
+          setMyVideoUrl,
+          userVideos,
+          setUserVideos,
+        }}
+      >
         <BrowserRouter>
           <Switch>
             <Route path="/" exact component={Home} />
