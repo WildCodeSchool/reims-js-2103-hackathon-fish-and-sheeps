@@ -2,18 +2,20 @@ import React, { useEffect, useRef, useState } from "react";
 import { useReactMediaRecorder } from "react-media-recorder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRecordVinyl, faStop } from "@fortawesome/free-solid-svg-icons";
-import PropTypes from "prop-types";
+import { useHistory } from "react-router-dom";
 import NavBar from "../components/NavBar.jsx";
 import FollowBar from "../components/FollowBar.jsx";
 import AddContext from "../contexts/AddContext.jsx";
 import "../components/Css/CreateVideo.css";
 import "./CreateVideo.css";
 
-function CreateVideo({ myVideoTitle, setMyVideoTitle }) {
+function CreateVideo() {
+  const history = useHistory();
+  const [myVideoTitle, setMyVideoTitle] = React.useState("");
+  const { userVideos, setUserVideos } = React.useContext(AddContext);
+
   const [selectedFile, setSelectedFile] = useState();
   const [isRecording, setIsRecording] = useState(false);
-
-  const { setMyVideoUrl } = React.useContext(AddContext);
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -73,7 +75,15 @@ function CreateVideo({ myVideoTitle, setMyVideoTitle }) {
     console.log(myVideoTitle);
 
     const postTheVideo = () => {
-      setMyVideoUrl(mediaBlobUrl);
+      setUserVideos([
+        {
+          id: 6,
+          title: myVideoTitle,
+          src: mediaBlobUrl,
+        },
+        ...userVideos,
+      ]);
+      history.push("/profile");
     };
 
     return (
@@ -146,9 +156,4 @@ function CreateVideo({ myVideoTitle, setMyVideoTitle }) {
   );
 }
 
-CreateVideo.propTypes = {
-  myVideoTitle: PropTypes.string.isRequired,
-  setMyVideoTitle: PropTypes.func.isRequired,
-  setMyFinalTitle: PropTypes.func.isRequired,
-};
 export default CreateVideo;
