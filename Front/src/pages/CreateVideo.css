@@ -10,3 +10,54 @@
    justify-content: center;
    margin-top: 1rem;
 }
+#video{
+   border-radius: 5px;
+   box-shadow: 4px 5px 15px 5px  rgba(0, 0, 0, 0.322);
+}
+#title{
+   border-color:#1dbf73;
+   border-radius: 5px;
+}
+#label{
+   color: #003b01;
+   margin-top:1rem;
+}
+
+.load{
+   background-color: rgb(255, 255, 255);
+   color: #003b01;
+   margin-bottom: 0.5rem;
+}
+.publish__button{
+   background-color: rgb(255, 255, 255);
+   color:#1dbf73;
+   font-size:1rem ;
+   border-radius: 5px;
+   margin-bottom: 0.5rem;
+   cursor: pointer;
+}
+
+.publish__button:hover{
+   background-color: #1dbf73;
+   color:#ffffff;
+}
+
+#select{
+   color: #003b01;
+   margin-bottom: 0.5rem;
+}
+
+.btnSubmit{
+   background-color: #1dbf73;
+   color:#ffffff;
+   font-size:1rem ;
+   border-radius: 5px;
+   margin-bottom: 0.25rem;
+   cursor: pointer;
+   padding: 0.25rem;
+}
+
+.btnSubmit:hover{
+   background-color: #ffffff;
+   color:#1dbf73;
+}

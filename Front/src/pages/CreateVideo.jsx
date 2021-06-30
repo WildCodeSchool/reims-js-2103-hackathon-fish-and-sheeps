@@ -87,7 +87,7 @@ function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
 
     return (
       <div className="reactVideo">
-        <video ref={videoRef} src={mediaBlobUrl} controls autoPlay />
+        <video id="video" ref={videoRef} src={mediaBlobUrl} controls autoPlay />
         <div className="videoButtons">
           <button className="startRecording" onClick={myStartRecording}>
             <FontAwesomeIcon
@@ -123,7 +123,9 @@ function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
         <FollowBar />
         <div className="search">
           <div className="records">
-            <label htmlFor="videoTitle">Your video Title goes here</label>
+            <label id="label" htmlFor="videoTitle">
+              Your video Title goes here
+            </label>
             <input
               type="text"
               name="videoTitle"
@@ -131,7 +133,13 @@ function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
               onChange={getUserTitle}
             />
             <div className="reactVideoRecorder">{RecordView()}</div>
-            <input type="file" name="file" onChange={changeHandler} />
+            <input
+              className="load"
+              id="post"
+              type="file"
+              name="file"
+              onChange={changeHandler}
+            />
             {selectedFile != null ? (
               <div>
                 <p>Filename: {selectedFile.name}</p>
@@ -143,10 +151,12 @@ function CreateVideo({ userVideos, myVideoTitle, setMyVideoTitle }) {
                 </p>
               </div>
             ) : (
-              <p>Select a file to show details</p>
+              <p id="select">Select a file to show details</p>
             )}
             <div>
-              <button onClick={handleSubmission}>Submit</button>
+              <button className="btnSubmit" onClick={handleSubmission}>
+                Submit
+              </button>
             </div>
           </div>
         </div>
